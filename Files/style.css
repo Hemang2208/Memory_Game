@@ -1,0 +1,284 @@
+/* General Resetting Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling: Sets up the main body of the page */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-height: max-content;
+    max-width: 100vw;
+    margin: 0;
+}
+
+/* Game Container Styling */
+.game-container {
+    background-color: whitesmoke;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0);
+    max-width: 500px;
+    width: 100%;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-x: auto;
+}
+
+/* Title Styling */
+h1 {
+    margin-bottom: 10px;
+}
+
+/* Timer, Score, and Attempts Styling */
+#timer,
+#score,
+#attempts {
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+/* Game Board Styling (Where the cards are displayed) */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card Styling */
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    perspective: 1000px;
+}
+
+/* Card Flip Animation (on click) */
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Inner Card Container (for 3D rotation effect) */
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+/* Card Front and Back Styling */
+.card-front,
+.card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+}
+
+/* Front Side of the Card */
+.card-front {
+    background-color: #2980b9;
+}
+
+/* Back Side of the Card (Contains the content like numbers or letters) */
+.card-back {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #2c3e50;
+    transform: rotateY(180deg);
+}
+
+/* Restart Button Styling */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: green;
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #27ae60;
+}
+
+/* Button Active Effect (when clicked) */
+button:active {
+    transform: scale(0.98);
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 500px) {
+    .game-container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    #timer,
+    #score,
+    #attempts {
+        font-size: 1.1em;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(4, 70px);
+        grid-template-rows: repeat(4, 70px);
+    }
+
+    .card {
+        width: 70px;
+        height: 70px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1em;
+    }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 380px) {
+    .game-container {
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    #timer,
+    #score,
+    #attempts {
+        font-size: 1.1em;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(4, 50px);
+        grid-template-rows: repeat(4, 50px);
+    }
+
+    .card {
+        width: 50px;
+        height: 50px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1em;
+    }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 270px) {
+    .game-container {
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    #timer,
+    #score,
+    #attempts {
+        font-size: 1.1em;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(3, 50px);
+        grid-template-rows: repeat(6, 50px);
+    }
+
+    .card {
+        width: 50px;
+        height: 50px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1em;
+    }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 200px) {
+    .game-container {
+        padding: 8px;
+    }
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    #timer,
+    #score,
+    #attempts {
+        font-size: 1.1em;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(2, 50px);
+        grid-template-rows: repeat(8, 50px);
+    }
+
+    .card {
+        width: 50px;
+        height: 50px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1em;
+    }
+}
+
+
+/* Tablet Responsiveness (600px to 1024px) */
+/*
+@media (min-width: 601px) and (max-width: 1024px) {
+    .game-container {
+        max-width: 90%;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(4, 90px);
+        grid-template-rows: repeat(4, 90px);
+    }
+
+    .card {
+        width: 90px;
+        height: 90px;
+    }
+} 
+*/
